@@ -122,3 +122,28 @@ Todos os componentes React possuem extensão .jsx (Javascript + XML)
 
     ![alt](readme-images/0004b.png)
 
+## Default exports vs Named Exports
+
+### Default exports
+
+  #### Vantagens:
+
+  - Permite que o nome da função que está sendo importada seja escrito de forma diferente do nome da função escrita no componente.
+
+    ![alt](readme-images/0005a.png)
+    ![alt](readme-images/0005b.png)
+    
+  #### Desvantagens:
+
+  - Alterar o nome pode tornar o código mais difícil de entender;
+
+  - Depois do programa pronto, se em algum momento alterarmos o nome da função for no componente os locais que importam esse componente não irão exibir erros.
+
+### Named Exports
+
+  #### Vantagens:
+
+  - Se o nome não for o mesmo o código não será carregado em tela.
+  
+    ![alt](readme-images/0006a.png)
+    ![alt](readme-images/0006b.png)
