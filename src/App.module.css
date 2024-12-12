@@ -1,0 +1,14 @@
+/*
+  Classe que estiliza o aside e o main conforme o layout 
+
+  https://www.figma.com/design/B7053YfZp18eirY3l5RW8v/Ignite-Feed-(Community)?node-id=1-35&node-type=frame&t=wXEzHanncEh3Mgdm-0
+*/
+.wrapper {
+  max-width: 70rem; /* aside = 256px + gap 32px + main 832px ==> 256 + 32 + 832 = 1120px (1120px / 16 = 70rem)*/
+  margin: 2rem auto; /* Espaçamento de 32px em cima e em baixo e automático dos lados.*/
+  padding: 0 1rem; /* Impede que o conteúdo fique colado nas laterais caso o tamanho da tela fique menor que 70rem*/
+  display: grid; /* Permite trabalhar com o grid-template*/
+  grid-template-columns: 256px 1fr; /* A 1ª coluna, o aside, será fixa com 256px. A 2ª coluna irá se adaptar de acordo com o tamanho da tela disponível.*/
+  gap: 2rem; /* espaçamento entre as colunas do aside e do main*/
+  align-items: flex-start; /* alinha os elementos no topo, se não usar essa opção, o padrão irá esticar o aside e o main para ocupar toda a tela.*/
+}
