@@ -1,0 +1,134 @@
+/* Define as estilizações do sidebar*/
+.sidebar {
+  background: var(--gray-800);
+  border-radius: 8px;
+  overflow: hidden; /* Se não usar essa opção, os cantos da imagem não irão respeitar o arredondamento de borda definido acima.*/
+}
+
+/*Estilizações da imagem de cover*/
+.cover {
+  width: 100%;
+  height: 72px;
+  object-fit: cover; /*Corta a imagem a partir do centro, não distorce a imagem para caber no espaço.*/
+}
+
+/*Estilizações do perfil de usuário*/
+.profile {
+  display: flex;
+  flex-direction: column; /* faz com que o nome do usuário e o cargo fiquem um abaixo do outro.*/
+  align-items: center;
+
+
+  /*
+    Faz a foto do usuário ficar posicionada entre a imagem de cover e a parte de baixo do profile.
+  
+    0px -   é usado apenas para deixar a conta negativa.
+
+    1.5rem  é a metade de 3rem, que é o tamanho do avatar, que está explicado abaixo nesse mesmo arquivo.
+
+    6px     é a metade de 12px, referente as bordas e outline, que estão explicados abaixo nesse mesmo arquivo.
+  */
+  margin-top: calc(0px - 1.5rem - 6px); 
+}
+
+/*Estilizações do nome do usuário*/
+.profile strong{
+  margin-top: 1rem;
+  color: var(--gray-100);
+  line-height: 1.6;
+}
+
+/*Estilizações do cargo do usuário*/
+.profile span{
+  font-size: 0.875rem; /*14px*/
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+
+/*Estilizações do avatar usuário*/
+.profile .avatar {
+  
+  /*
+    O comando abaixo, que está comentado, é uma das formas de resolver o problema com o tamanho da imagem, ele faz com que o elemento não seja espremido pelas bordas, margens e paddings, nesse exemplo, a imagem permanecerá com o mesmo tamanho e os demais elementos irão se expandir.
+    
+    A outra forma de resolver esse problema é utilizando calculos no CSS, veja abaixo.*/
+  
+  /*box-sizing: initial;*/
+  
+  
+  /* width: 3rem; Originalmente estava assim, mudamos para o seguinte calculo*/
+  width: calc(3rem + 12px);
+  
+  /* height: 3rem; Originalmente estava assim, mudamos para o seguinte calculo*/
+  height: calc(3rem + 12px);
+
+  /* 
+    Os 12px usados no cálculo são referente as bordas e ao outline que estão abaixo.
+
+    border: 4px solid var(--gray-800);    ===> 4px de um lado, mais 4px de outro.
+    outline: 2px solid var(--green-500);  ===> 2px de um lado, mais 2px de outro.
+
+    4px + 4px + 2px + 2px = 12px
+  
+  */
+
+  border-radius: 8px; /* Usamos pixel aqui porque não queremos deixar as bordas mais arredondadas se o usuário utilizar um padrão de fonte maior no dispositivo, independente disso, o arredondamento das bordas será o mesmo, por isso usamos um valor fixo.*/
+
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+}
+
+/*Estilizações do botão*/
+.sidebar footer {
+  border-top: 1px solid var(--gray-600);
+  margin-top: 1.5rem;
+  padding: 1.5rem 2rem 2rem; /*1.5 acima, 2rem nas laterais e 2rem abaixo*/
+}
+
+.sidebar footer a {
+  background: transparent;
+  color: var(--green-500);
+  border: 1px solid var(--green-500);
+  border-radius: 8px;
+  height: 50px;
+  padding: 0 1.5rem;
+  font-weight: bold;
+  display: block; /* Ver explicação abaixo.*/
+  text-decoration: none;
+  transition: color 0.1s, background-color 0.1s; /* Faz o efeito de hover do mouse ficar mais suave.*/
+
+  /*Centraliza o texto do botão*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.sidebar footer a:hover {
+  background: var(--green-500);
+  color: var(--white);
+}
+
+/*
+    display: block;
+
+      O trecho de código display: block; no CSS é usado para fazer com que o elemento se comporte como um bloco.
+
+      Por padrão, links (<a>) são elementos inline, ou seja, ocupam apenas o espaço necessário para o conteúdo (como o texto ou ícone dentro dele) e não iniciam uma nova linha.
+
+      Quando você define display: block;, o elemento <a>:
+
+        - Ocupa toda a largura disponível do contêiner pai (se não houver limites adicionais, como largura ou margem).
+        - Permite adicionar propriedades que só funcionam em elementos de bloco, como height e width, que não teriam efeito em elementos inline.
+        - Garante que o link comece em uma nova linha, mesmo que existam outros elementos ao seu redor.
+      
+      Neste código, essa propriedade permite que o link seja estilizado com:
+
+        - Altura fixa (height: 50px).
+        - Preenchimento horizontal (padding: 0 1.5rem).
+        - O link ocupando o espaço como um botão retangular, ao invés de se limitar apenas ao texto.
+      
+      Em resumo, display: block; transforma o link em um elemento visual de bloco, ideal para criar botões estilizados. 
+
+*/
