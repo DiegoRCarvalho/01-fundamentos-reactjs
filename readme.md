@@ -154,3 +154,21 @@ São informações que passamos para os componentes.
 
   ![alt](readme-images/0007a.png)
   ![alt](readme-images/0007a.png)
+
+### CSS Modules
+
+O React reconhece arquivos CSS, porém nós não devemos importar o CSS diretamente no HTML, essa importação deve ser feita em um arquivo Javascript.
+  ![alt](readme-images/0008.png)
+
+Para mantermos o CSS apenas dentro do escopo de um componente, utilizamos a ferramenta CSS Modules, o Vite já utiliza essa ferramenta por padrão, então não precisamos instalar.
+
+
+- Criando um componente com estilização
+  ![alt](readme-images/0009b.png)
+
+- Importando o componente
+  ![alt](readme-images/0009a.png)
+
+- Observe quea classe criada no html recebe um hash aleatório para que ela seja única e não interfira nas demais classes.
+  ![alt](readme-images/0009c.png)
+
