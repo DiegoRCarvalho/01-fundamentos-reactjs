@@ -106,3 +106,19 @@ npx vite --version
 **PARA:**
 
   ![alt](readme-images/0003b.png)
+
+
+## Componente
+
+O componente no React é uma função que retorna HTML. 
+
+Todos os componentes React possuem extensão .jsx (Javascript + XML)
+
+  - Exemplo de um componente
+
+    ![alt](readme-images/0004a.png)
+  
+  - Exempo de como importar e utilizar o componente. Observe que para utilizar mais de um componente, precisamos envolve-lo com um elemento, como por exemplo uma div.
+
+    ![alt](readme-images/0004b.png)
+
