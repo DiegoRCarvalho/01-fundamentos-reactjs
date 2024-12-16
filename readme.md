@@ -172,3 +172,22 @@ Para mantermos o CSS apenas dentro do escopo de um componente, utilizamos a ferr
 - Observe quea classe criada no html recebe um hash aleatório para que ela seja única e não interfira nas demais classes.
   ![alt](readme-images/0009c.png)
 
+## Nomes de atributos no React
+
+As propriedades dos elementos HTML são escritas como camelCase no React, veja:
+
+- HTML
+
+  ```
+  <svg fill-rule="" />
+  <time datetime="2024-12-16 19:37:30" >Publicado há 1h</time>
+  <input maxlength="11"/>
+  ```
+
+- React
+
+  ```
+  <svg fillRule="" />
+  <time dateTime="2024-12-16 19:37:30">Publicado há 1h</time>
+  <input maxLength="11"/>
+  ```
