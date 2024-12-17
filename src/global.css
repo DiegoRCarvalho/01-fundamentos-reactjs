@@ -12,6 +12,8 @@
   --red-500: #F75A68;
 }
 
+
+/* Remove a borda padrão que os navegadores colocam quando o elemento está em foco e inseri uma de acordo com nosso designer. */
 :focus {
   outline: transparent;
   box-shadow: 0 0 0 2px var(--green-500);
