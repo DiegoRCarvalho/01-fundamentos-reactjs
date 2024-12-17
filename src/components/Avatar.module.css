@@ -1,0 +1,36 @@
+.avatar {
+  
+  /*
+    O comando abaixo, que está comentado, é uma das formas de resolver o problema com o tamanho da imagem, ele faz com que o elemento não seja espremido pelas bordas, margens e paddings, nesse exemplo, a imagem permanecerá com o mesmo tamanho e os demais elementos irão se expandir.
+    
+    A outra forma de resolver esse problema é utilizando calculos no CSS, veja abaixo.*/
+  
+  /*box-sizing: initial;*/
+  
+  
+  /* width: 3rem; Originalmente estava assim, mudamos para o seguinte calculo*/
+  width: calc(3rem + 12px);
+  
+  /* height: 3rem; Originalmente estava assim, mudamos para o seguinte calculo*/
+  height: calc(3rem + 12px);
+
+  /* 
+    Os 12px usados no cálculo são referente as bordas e ao outline que estão abaixo.
+
+    border: 4px solid var(--gray-800);    ===> 4px de um lado, mais 4px de outro.
+    outline: 2px solid var(--green-500);  ===> 2px de um lado, mais 2px de outro.
+
+    4px + 4px + 2px + 2px = 12px
+  
+  */
+
+  border-radius: 8px; /* Usamos pixel aqui porque não queremos deixar as bordas mais arredondadas se o usuário utilizar um padrão de fonte maior no dispositivo, independente disso, o arredondamento das bordas será o mesmo, por isso usamos um valor fixo.*/
+}
+
+.avatarWithBorder {
+  
+  width: calc(3rem + 12px);
+  height: calc(3rem + 12px);border-radius: 8px;
+  border: 4px solid var(--gray-800);
+  outline: 2px solid var(--green-500);
+}

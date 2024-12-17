@@ -1,11 +1,16 @@
 import styles from "./Post.module.css"
+import { Avatar } from "./Avatar"
 import { Comment } from "./Comment"
 export function Post() {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img className={styles.avatar} src="src/assets/profile-jane.svg" />
+          {/* No React quando queremos enviar uma propriedade com valor TRUE, podemos omitir o true, bas informar o nome da propriedade, exempo o hasBorder abaixo. */}
+          <Avatar 
+            hasBorder
+            src="src/assets/profile-jane.svg"
+          />
           <div className={styles.authorInfo}>
             <strong>Jane Cooper</strong>
             <span>Web Developer</span>

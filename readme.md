@@ -138,6 +138,11 @@ npx vite --version
 
 O componente no React é uma função que retorna HTML. 
 
+Os dois motivos para criar um componente no React são: 
+
+- Quando alguma coisa está se repetindo, com o mesmo funcionamento ou comportamento.
+- Quando conseguimos desacoplar um trecho de um componente maior, sem que esse deixe de funcionar.
+
 Todos os componentes React possuem extensão .jsx (Javascript + XML)
 
   - Exemplo de um componente
