@@ -13,3 +13,32 @@
   gap: 2rem; /* espaçamento entre as colunas do aside e do main*/
   align-items: flex-start; /* alinha os elementos no topo, se não usar essa opção, o padrão irá esticar o aside e o main para ocupar toda a tela.*/
 }
+
+@media (max-width: 768px) {
+
+  /* 
+  
+  Os itens que usamos o rem para definir o tamanho irão se adaptar a propriedade font-size do html, nesse caso, se para o mobile reduzirmos o font-size do html, todos os elementos da página irão se ajustar automáticamente. Mas para essa regra funcionar, precisamos definir o font-size com um percentual, veja como calcular:
+  
+  O font-size padrão da minha aplicação é 1rem (16px). Desejo mudar para 14px (0,875rem). Então temos a seguinte regra de 3:
+
+  16px ---> 100%
+  14px ---> x
+  _____________
+
+  14 * 100 / 16 = 87,5%
+
+  */
+  html {
+    /* 
+    Outra forma mais simples de fazer é utilizando o rem ---> 14px / 16px = 0.875rem
+
+    font-size: 0.875rem; 
+    */
+    font-size: 87.5%;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
