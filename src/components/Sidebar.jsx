@@ -10,7 +10,7 @@ export function Sidebar() {
       />
       <div className={styles.profile}>
         <Avatar 
-          hasBorder={true} 
+          // hasBorder={true} // Com a desestruturação que fizemos nesse commit, não é mais necessário informar essa propriedade caso ela seja true.
           src="src/assets/profile-leslie.svg"
         />
         <strong>Leslie Alexander</strong>

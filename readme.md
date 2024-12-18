@@ -160,6 +160,8 @@ São informações que passamos para os componentes.
   ![alt](readme-images/0007a.png)
   ![alt](readme-images/0007a.png)
 
+Além das propriedades que já existem no HTML, é possível criar propriedades com qualquer nome e lógica desejados, veja o exemplo da propriedade hasBorder que foi criada para descobrir se o avatar terá bordas ou não. (Commit: "desestruturando as propriedades recebidas pelo avatar e tornando um valor padrão.")
+
 ### CSS Modules
 
 O React reconhece arquivos CSS, porém nós não devemos importar o CSS diretamente no HTML, essa importação deve ser feita em um arquivo Javascript.
