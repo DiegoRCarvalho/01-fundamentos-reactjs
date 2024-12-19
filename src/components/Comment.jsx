@@ -1,7 +1,7 @@
 import { ThumbsUp, Trash } from "phosphor-react"
 import { Avatar } from "./Avatar"
 import styles from "./Comment.module.css"
-export function Comment() {
+export function Comment(props) {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="src/assets/profile-leslie.svg"/>
@@ -19,7 +19,8 @@ export function Comment() {
               <Trash size={24}/>
             </button>
           </header>
-          <p>Muito bom Devon, parabéns!! 👏👏</p>
+          {/* Esse content é a propriedade que inventamos para o componente Comment, quando ele foi chamado dentro do componente Post.  Também poderíamos desestruturar essa propriedade, mas preferi deixar apenas para eu me lembrar de onde essa informação está vindo*/}
+          <p>{props.content}</p>
         </div>
         <footer>
           <button>

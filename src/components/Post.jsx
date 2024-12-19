@@ -17,8 +17,7 @@ export function Post({ author, publishedAt, content }) {
     Abaixo para facilitar, fizemos a desestrutruração do array [comments, setComments].
   */
   const [comments, setComments] = useState([
-      1,
-      2
+      "Postagem legal."
   ])
 
   // Utilizando o Intl do Javascript para formatar a data 
@@ -43,10 +42,10 @@ export function Post({ author, publishedAt, content }) {
 
 
   // Função utilizada para capturar dados de envio do formulário
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event) {
     // Precisamos impedir que a página seja recarregada quando o formulário for enviado.
     event.preventDefault()
-    
+
     // O spread operator copia o valor atual da variável
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
     // O comments.length + 1 é a próxima posição disponível do vetor.
@@ -104,7 +103,7 @@ export function Post({ author, publishedAt, content }) {
       
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment />
+          return <Comment content={comment}/>
         })}
       </div>
 
