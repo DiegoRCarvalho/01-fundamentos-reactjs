@@ -46,10 +46,19 @@ export function Post({ author, publishedAt, content }) {
     // Precisamos impedir que a página seja recarregada quando o formulário for enviado.
     event.preventDefault()
 
-    // O spread operator copia o valor atual da variável
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-    // O comments.length + 1 é a próxima posição disponível do vetor.
-   setComments([...comments, comments.length + 1]);
+    // event.target.comment.value recupera o valor da propriedade "comment" que está na textarea dentro do formulário abaixo.
+    const newCommentText = event.target.comment.value
+
+    // ...comments -> spread operator copia o valor atual da variável
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
+    // newCommentText -> novo conteúdo do comentário
+   setComments([...comments, newCommentText]);
+
+   // Abaixo vemos uma forma de limpar o textarea utilizando programação IMPERATIVA, devemos evitar utilizar esse tipo.
+   event.target.comment.value = ''
+
+
+
   }
 
 
@@ -95,7 +104,10 @@ export function Post({ author, publishedAt, content }) {
 
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
-        <textarea placeholder="Deixe um comentário."/>
+        <textarea 
+          name="comment"
+          placeholder="Deixe um comentário."
+        />
         <footer>
           <button type="submit">Publicar</button>
         </footer>
