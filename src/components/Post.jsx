@@ -20,6 +20,9 @@ export function Post({ author, publishedAt, content }) {
       "Postagem legal."
   ])
 
+  // É importante inicializar o useState com o tipo de dado que será armazenado, exemplo = String = '', array = []
+  const [newCommentText, setNewCommentText] = useState('')
+
   // Utilizando o Intl do Javascript para formatar a data 
   /*
     const publishedDateFormatted = new Intl.DateTimeFormat(
@@ -55,10 +58,21 @@ export function Post({ author, publishedAt, content }) {
    setComments([...comments, newCommentText]);
 
    // Abaixo vemos uma forma de limpar o textarea utilizando programação IMPERATIVA, devemos evitar utilizar esse tipo.
-   event.target.comment.value = ''
+   // event.target.comment.value = ''
 
+   // O ideal é utilizar programação DECLARATIVA no React, então veja como limpar o textarea. Sendo assim essa informação passa a ficar na propriedade value da textarea 
+      /*
+        1 - Crie a função handleNewCommentChange para receber o valor do textarea.
+        2 - Adicione a propriedade value={newCommentText} ao textarea
+        3 - Retorne o valor da textarea para vazio setNewCommentText('')
+      */
+      setNewCommentText('')
+  }
 
-
+  // Essa função receberá o textarea e não o formulário 
+  function handleNewCommentChange(event){
+    // Com o comando abaixo conseguiremos recuperar o valor digitado na textarea.
+    setNewCommentText(event.target.value)
   }
 
 
@@ -107,6 +121,8 @@ export function Post({ author, publishedAt, content }) {
         <textarea 
           name="comment"
           placeholder="Deixe um comentário."
+          value={newCommentText} // Chama a função para limparmos o textarea
+          onChange={handleNewCommentChange} // Irá monitorar toda vez que ocorrer uma alteração no conteúdo da textarea. 
         />
         <footer>
           <button type="submit">Publicar</button>
