@@ -1,7 +1,31 @@
 import styles from "./Post.module.css"
+import { format, formatDistanceToNow } from "date-fns"
+import ptBR from 'date-fns/locale/pt-BR'
 import { Avatar } from "./Avatar"
 import { Comment } from "./Comment"
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+
+
+  // Utilizando o Intl do Javascript para formatar a data 
+  /*
+    const publishedDateFormatted = new Intl.DateTimeFormat(
+      'pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }
+    ).format(publishedAt)
+  */
+
+  // Utilizando a biblioteca date-fns para formatar a data
+  // https://date-fns.org/docs/format
+  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'de' Y 'às' HH:mm'h'", {locale: ptBR})
+
+  // A função formatDistanceToNow do date-fns recebe uma data e compara com o agora
+  const publishDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR})
+
   return (
     <article className={styles.post}>
       <header>
@@ -9,27 +33,36 @@ export function Post() {
           {/* No React quando queremos enviar uma propriedade com valor TRUE, podemos omitir o true, bas informar o nome da propriedade, exempo o hasBorder abaixo. */}
           <Avatar 
             hasBorder
-            src="src/assets/profile-jane.svg"
+            src={author.avatarUrl}
           />
           <div className={styles.authorInfo}>
-            <strong>Jane Cooper</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
         <time 
-          title="16 de Dezembro às 19:37h" 
-          datetime="2024-12-16 19:37:30">Publicado há 1h
+          title={publishedDateFormatted} 
+          datetime={publishedAt.toISOString()}>
+          Há {publishDateRelativeToNow}
         </time>
       </header>
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
-        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-        <p> 👉{' '}<a href="">jane.design/doctorcare</a></p>
-        <p>
-          <a href="">#novoprojeto</a>{' '}
-          <a href="">#nlw</a>{' '}
-          <a href="">#rocketseat</a>
-        </p>
+        {content.map(line => {
+          
+          // if (line.type === 'paragraph'){
+          //   return <p>{line.content}</p>
+          // } else if (line.type === 'link'){
+          //   return <p><a href="#">{line.content}</a></p>
+          // }
+
+          switch(line.type) {
+            case 'paragraph':
+              return <p>{line.content}</p>
+            case 'link':
+              return <p><a href="#">{line.content}</a></p>
+          }
+
+        })}
       </div>
       <form className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
